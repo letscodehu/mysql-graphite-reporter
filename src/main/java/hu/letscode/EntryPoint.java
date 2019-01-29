@@ -55,11 +55,11 @@ public class EntryPoint {
 
     private static DataSource createDataSource(Properties properties) throws SQLException {
         MysqlDataSource ds = new MysqlDataSource();
-        ds.setUrl(String.format("jdbc:mysql://%s:%s/?user=%s&password=%s",
+        ds.setPassword(properties.getProperty(MYSQL_PASS));
+        ds.setUrl(String.format("jdbc:mysql://%s:%s/?user=%s",
                 properties.getProperty(MYSQL_HOST),
                 properties.getProperty(MYSQL_PORT),
-                properties.getProperty(MYSQL_USER),
-                properties.getProperty(MYSQL_PASS)
+                properties.getProperty(MYSQL_USER)
                 ));
         ds.setAutoReconnect(true);
         return ds;
