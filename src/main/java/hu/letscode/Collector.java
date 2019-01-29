@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,7 +35,8 @@ public class Collector implements Runnable {
 
     @Override
     public void run() {
-        try (Statement statement = dataSource.getConnection().createStatement(
+        try (Connection connection = dataSource.getConnection();
+             Statement statement = connection.createStatement(
                 ResultSet.TYPE_FORWARD_ONLY,
                 ResultSet.CONCUR_READ_ONLY
         )) {
