@@ -12,10 +12,10 @@ By default every metrics is prefixed by _mysql_.
 
 Let's say the SHOW GLOBAL STATUS returned:
 
-|Aborted_clients       | 0 |
-|Aborted_connects      | 0 |
-|Binlog_cache_disk_use | 0 |
-|Binlog_cache_use      | 0 |
+       | Aborted_clients       | 0 |
+       | Aborted_connects      | 0 |
+       | Binlog_cache_disk_use | 0 |
+       | Binlog_cache_use      | 0 |
 
 The Aborted_clients will be reported as _mysql.status.aborted_clients_ by default.
 
